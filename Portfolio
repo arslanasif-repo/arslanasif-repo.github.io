@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Game Portfolio</title>
+</head>
+<body>
+    <h1>Welcome to My Game Portfolio</h1>
+    <p>Here are some of the games I’ve worked on:</p>
+    <ul>
+        <li><a href="https://play.google.com/store/apps/details?id=com.bgs.cat.simulator.scary.mom.games">Cat Prankster Simulator</a></li>
+        <li><a href="https://apps.apple.com/pk/app/bakery-supermart-simulator/id6736761235">Bakery Shop Simulator</a></li>
+        <li><a href="https://play.google.com/store/apps/details?id=com.bgs.stretch.guy.puzzle">Spring Guy</a></li>
+        <!-- Add more game links here -->
+    </ul>
+</body>
+</html>
