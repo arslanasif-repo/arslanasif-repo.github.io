@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: url('game-dev-banner.jpg') no-repeat center;
+    background-size: cover;
+    padding: 50px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+.games-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.games-list li {
+    background: #1e1e1e;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.games-list li:hover {
+    background: #333;
+}
+
+.games-list a {
+    text-decoration: none;
+    color: #61dafb;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+footer {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #1e1e1e;
+    color: #bbb;
+}
