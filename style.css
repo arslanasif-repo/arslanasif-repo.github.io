@@ -99,3 +99,60 @@ footer {
   text-decoration: underline;
 }
 
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.game-card {
+  background: #1e1e1e;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #00000033;
+  font-size: 1em;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.game-card a {
+  color: #61dafb;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.game-card span {
+  font-size: 0.9em;
+  color: #aaa;
+  margin-top: 5px;
+}
+
+.skills .tag {
+  background-color: #333;
+  padding: 6px 12px;
+  margin: 5px;
+  border-radius: 20px;
+  display: inline-block;
+  font-size: 0.95em;
+  color: #61dafb;
+}
+
+.centered-section {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.contact a {
+  color: #61dafb;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+
