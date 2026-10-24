@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muhammad Arslan Asif – Senior Unity Game Developer</title>
+<meta name="description" content="Senior Unity game developer building hybrid casual and puzzle mobile games. 10+ titles shipped to Google Play and the App Store.">
+<meta property="og:title" content="Muhammad Arslan Asif – Senior Unity Game Developer">
+<meta property="og:description" content="Hybrid casual and puzzle mobile games built with Unity and C#.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arslanasif-repo.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎮%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F6FA; --surface:#FFFFFF; --ink:#12172B; --muted:#5A6178; --line:#DDE0EA; --accent:#2B55E6; --accent-ink:#FFFFFF;
+  --puzzle:#6D4AE8; --hybrid:#E8742A; --sim:#12987F;
+  --puzzle-bg:#ECE8FD; --hybrid-bg:#FDEBDD; --sim-bg:#DDF4EE;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1220; --surface:#171B2E; --ink:#EEF0F8; --muted:#A1A8C0; --line:#2A3050; --accent:#7C9BFF; --accent-ink:#0F1220;
+    --puzzle:#A892FF; --hybrid:#FFA25F; --sim:#4FD3B6;
+    --puzzle-bg:#2A2352; --hybrid-bg:#442C1B; --sim-bg:#143C34;
+    color-scheme: dark;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 "Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+header.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+header.top .mark{font:800 18px "Bricolage Grotesque",sans-serif;text-decoration:none;letter-spacing:-.01em}
+header.top nav{display:flex;gap:22px}
+header.top nav a{text-decoration:none;color:var(--muted);font-weight:500}
+header.top nav a:hover{color:var(--ink)}
+
+.hero{padding:56px 0 64px}
+.hero h1{font:800 clamp(2.9rem,9vw,6.4rem)/.95 "Bricolage Grotesque",sans-serif;letter-spacing:-.035em;margin:0 0 28px;max-width:11ch}
+.hero .lede{font-size:clamp(1.15rem,2.4vw,1.4rem);line-height:1.5;max-width:34em;margin:0 0 14px}
+.hero .now{color:var(--muted);margin:0 0 32px;max-width:40em}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:12px 20px;border-radius:12px;font-weight:600;text-decoration:none;border:1.5px solid var(--ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{transform:translateY(-1px)}
+
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2{font:800 clamp(1.8rem,4vw,2.6rem)/1.1 "Bricolage Grotesque",sans-serif;letter-spacing:-.02em;margin:0 0 10px}
+.sub{color:var(--muted);margin:0 0 26px;max-width:38em}
+
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px}
+.chip{font:600 15px "Instrument Sans",sans-serif;padding:8px 16px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+.games{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.game[hidden]{display:none}
+.game-link{display:flex;gap:16px;align-items:center;padding:14px;background:var(--surface);border:1px solid var(--line);border-radius:18px;text-decoration:none;height:100%}
+.game-link:hover{border-color:var(--ink)}
+.glyph{flex:none;width:64px;height:64px;border-radius:16px;display:grid;place-items:center;font-size:32px;line-height:1}
+.g-puzzle .glyph{background:var(--puzzle-bg)} .g-hybrid .glyph{background:var(--hybrid-bg)} .g-sim .glyph{background:var(--sim-bg)}
+.game-body{display:flex;flex-direction:column;min-width:0}
+.game-name{font:700 17px/1.25 "Bricolage Grotesque",sans-serif}
+.game-meta{font-size:14px;color:var(--muted)}
+.g-puzzle .game-meta{color:var(--puzzle)} .g-hybrid .game-meta{color:var(--hybrid)} .g-sim .game-meta{color:var(--sim)}
+.game-note{font-size:14px;margin-top:4px}
+
+dl.work{display:grid;grid-template-columns:1fr;gap:0;margin:0}
+dl.work div{display:grid;grid-template-columns:minmax(150px,1fr) 3fr;gap:8px 32px;padding:18px 0;border-top:1px solid var(--line)}
+dl.work div:first-child{border-top:0}
+dl.work dt{font:700 20px "Bricolage Grotesque",sans-serif}
+dl.work dd{margin:0;max-width:40em}
+@media (max-width:640px){dl.work div{grid-template-columns:1fr}}
+
+.stack{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:26px 0 0}
+.stack li{padding:6px 14px;border:1px solid var(--line);border-radius:999px;font-size:15px;background:var(--surface)}
+
+.contact p{max-width:34em}
+footer{padding:28px 0 48px;color:var(--muted);font-size:15px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="mark" href="#top">Arslan Asif</a>
+    <nav aria-label="Primary">
+      <a href="#games">Games</a>
+      <a href="#work">How I work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <h1>Muhammad Arslan Asif</h1>
+      <p class="lede">I’m a Senior Unity game developer. I build hybrid casual and puzzle mobile games that run smoothly, scale cleanly, and are ready for LiveOps.</p>
+      <p class="now">Now building puzzle games at Mindstorm Studios in Lahore. 10+ titles shipped to Google Play, over 1M downloads combined.</p>
+      <div class="btns">
+        <a class="btn primary" href="#games">See my games</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+
+    <section id="games" aria-labelledby="games-h">
+      <h2 id="games-h">Games I’ve worked on</h2>
+      <p class="sub">Tap a game to play it, or open the demo or video if it isn’t on a store.</p>
+      <div class="filters" role="group" aria-label="Filter games by genre">
+          <button type="button" class="chip" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="chip" data-filter="puzzle" aria-pressed="false">Puzzle</button>
+          <button type="button" class="chip" data-filter="hybrid" aria-pressed="false">Hybrid casual</button>
+          <button type="button" class="chip" data-filter="sim" aria-pressed="false">Simulation & idle</button>
+      </div>
+      <ul class="games" id="gameList">
+        <li class="game g-puzzle" data-genre="puzzle">
+          <a class="game-link" href="https://play.google.com/store/apps/details?id=com.bgs.stretch.guy.puzzle" target="_blank" rel="noopener noreferrer" aria-label="Spring Guy: Open on Google Play">
+            <span class="glyph" aria-hidden="true">🧍</span>
+            <span class="game-body">
+              <span class="game-name">Spring Guy</span>
+              <span class="game-meta">Android · Puzzle</span>
+              
+            </span>
+          </a>
+        </li>
+        <li class="game g-puzzle" data-genre="puzzle">
+          <a class="game-link" href="https://play.google.com/store/apps/details?id=com.bgs.shape.shift" target="_blank" rel="noopener noreferrer" aria-label="Shape Evolution: Open on Google Play">
+            <span class="glyph" aria-hidden="true">🧬</span>
+            <span class="game-body">
+              <span class="game-name">Shape Evolution</span>
+              <span class="game-meta">Android · Puzzle</span>
+              
+            </span>
+          </a>
+        </li>
+        <li class="game g-puzzle" data-genre="puzzle">
+          <a class="game-link" href="https://drive.google.com/file/d/1FKLgFfPv4PSKG7wDeLLKoH5yePsvPe1v/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Killer Splat (Amaze): Open demo">
+            <span class="glyph" aria-hidden="true">🌀</span>
+            <span class="game-body">
+              <span class="game-name">Killer Splat (Amaze)</span>
+              <span class="game-meta">Demo · Puzzle</span>
+              
+            </span>
+          </a>
+        </li>
+        <li class="game g-puzzle" data-genre="puzzle">
+          <a class="game-link" href="https://drive.google.com/file/d/1gznm599NPy_mJjQ0xU3hw9ATkwtyiHqj/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Spot The Difference: Open demo">
+            <span class="glyph" aria-hidden="true">🔍</span>
+            <span class="game-body">
+              <span class="game-name">Spot The Difference</span>
+              <span class="game-meta">Demo · Puzzle</span>
+              
+            </span>
+          </a>
+        </li>
+        <li class="game g-puzzle" data-genre="puzzle">
+          <a class="game-link" href="https://youtube.com/shorts/-q_-jdSGCq4?si=Vr4dETDjP4_KN8iT" target="_blank" rel="noopener noreferrer" aria-label="Draw to Crush: Watch video">
+            <span class="glyph" aria-hidden="true">✏️</span>
+            <span class="game-body">
+              <span class="game-name">Draw to Crush</span>
+              <span class="game-meta">Video · Puzzle</span>
+              
+            </span>
+          </a>
+        </li>
+        <li class="game g-hybrid" data-genre="hybrid">
+          <a class="game-link" href="https://apps.apple.com/us/app/robo-smash-battle/id6753589080" target="_blank" rel="noopener noreferrer" aria-label="Tear'Em All Robots: Open on the App Store">
+            <span class="glyph" aria-hidden="true">👾</span>
+            <span class="game-body">
+              <span class="game-name">Tear'Em All Robots</span>
+              <span class="game-meta">iOS · Hybrid casual</span>
+              
+            </span>
+          </a>
+        </li>
+        <li class="game g-hybrid" data-genre="hybrid">
+          <a class="game-link" href="https://play.google.com/store/apps/details?id=com.fcg.mergeandfight.mergemonster.battlearena" target="_blank" rel="noopener noreferrer" aria-label="Merge Monster: Open on Google Play">
+            <span class="glyph" aria-hidden="true">👾</span>
+            <span class="game-body">
+              <span class="game-name">Merge Monster</span>
+              <span class="game-meta">Android · Hybrid casual</span>
+              
+            </span>
+          </a>
+        </li>
+        <li class="game g-hybrid" data-genre="hybrid">
+          <a class="game-link" href="https://play.google.com/store/apps/details?id=com.fcg.webhero.shooter" target="_blank" rel="noopener noreferrer" aria-label="Web Action: Open on Google Play">
+            <span class="glyph" aria-hidden="true">🕷️</span>
+            <span class="game-body">
+              <span class="game-name">Web Action</span>
+              <span class="game-meta">Android · Hybrid casual</span>
+              
+            </span>
+          </a>
+        </li>
+        <li class="game g-hybrid" data-genre="hybrid">
+          <a class="game-link" href="https://play.google.com/store/apps/details?id=com.fcg.badmom.goodmom.rungames" target="_blank" rel="noopener noreferrer" aria-label="Good or Bad Mom Run: Open on Google Play">
+            <span class="glyph" aria-hidden="true">👩‍👧</span>
+            <span class="game-body">
+              <span class="game-name">Good or Bad Mom Run</span>
+              <span class="game-meta">Android · Hybrid casual</span>
+              
+            </span>
+          </a>
+        </li>
+        <li class="game g-hybrid" data-genre="hybrid">
+          <a class="game-link" href="https://play.google.com/store/apps/details?id=com.fcg.bakery.stack.maker.game" target="_blank" rel="noopener noreferrer" aria-label="Bakery Stack: Open on Google Play">
+            <span class="glyph" aria-hidden="true">🥐</span>
+            <span class="game-body">
+              <span class="game-name">Bakery Stack</span>
+              <span class="game-meta">Android · Hybrid casual</span>
+              
+            </span>
+          </a>
+        </li>
+        <li class="game g-hybrid" data-genre="hybrid">
+          <a class="game-link" href="https://play.google.com/store/apps/details?id=com.zatg.hideorseek.games" target="_blank" rel="noopener noreferrer" aria-label="Hide &amp; Seek: Open on Google Play">
+            <span class="glyph" aria-hidden="true">🙈</span>
+            <span class="game-body">
+              <span class="game-name">Hide &amp; Seek</span>
+              <span class="game-meta">Android · Hybrid casual</span>
+              
+            </span>
+          </a>
+        </li>
+        <li class="game g-hybrid" data-genre="hybrid">
+          <a class="game-link" href="https://drive.google.com/file/d/1QaJ0YK-M_mxSA--g1cKwipfX6L5cD_W0/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Elastic Shooter: Open demo">
+            <span class="glyph" aria-hidden="true">🎯</span>
+            <span class="game-body">
+              <span class="game-name">Elastic Shooter</span>
+              <span class="game-meta">Demo · Hybrid casual</span>
+              
+            </span>
+          </a>
+        </li>
+        <li class="game g-hybrid" data-genre="hybrid">
+          <a class="game-link" href="https://drive.google.com/file/d/1LpMhzyDWK6Cb4vxDQhvqnfafNFy4XU2k/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Nerf Gun Shooter: Open demo">
+            <span class="glyph" aria-hidden="true">🔫</span>
+            <span class="game-body">
+              <span class="game-name">Nerf Gun Shooter</span>
+              <span class="game-meta">Demo · Hybrid casual</span>
+              
+            </span>
+          </a>
+        </li>
+        <li class="game g-sim" data-genre="sim">
+          <a class="game-link" href="https://play.google.com/store/apps/details?id=com.bgs.manage.superstore.market.simulator&amp;pcampaignid=web_share" target="_blank" rel="noopener noreferrer" aria-label="Bakery Shop Simulator: Open on Google Play">
+            <span class="glyph" aria-hidden="true">🍞</span>
+            <span class="game-body">
+              <span class="game-name">Bakery Shop Simulator</span>
+              <span class="game-meta">Android · Simulation & idle</span>
+              
+            </span>
+          </a>
+        </li>
+        <li class="game g-sim" data-genre="sim">
+          <a class="game-link" href="https://play.google.com/store/apps/details?id=com.bgs.cat.simulator.scary.mom.games" target="_blank" rel="noopener noreferrer" aria-label="Cat Prankster Simulator: Open on Google Play">
+            <span class="glyph" aria-hidden="true">🐱</span>
+            <span class="game-body">
+              <span class="game-name">Cat Prankster Simulator</span>
+              <span class="game-meta">Android · Simulation & idle</span>
+              
+            </span>
+          </a>
+        </li>
+        <li class="game g-sim" data-genre="sim">
+          <a class="game-link" href="https://play.google.com/store/apps/details?id=com.puzzlecorp.daycare.idle.game" target="_blank" rel="noopener noreferrer" aria-label="Idle Daycare: Open on Google Play">
+            <span class="glyph" aria-hidden="true">👶</span>
+            <span class="game-body">
+              <span class="game-name">Idle Daycare</span>
+              <span class="game-meta">Android · Simulation & idle</span>
+              
+            </span>
+          </a>
+        </li>
+        <li class="game g-sim" data-genre="sim">
+          <a class="game-link" href="https://play.google.com/store/apps/details?id=com.genigames.idle.confinementcentre.tycoon" target="_blank" rel="noopener noreferrer" aria-label="Birth Center Tycoon: Open on Google Play">
+            <span class="glyph" aria-hidden="true">🏥</span>
+            <span class="game-body">
+              <span class="game-name">Birth Center Tycoon</span>
+              <span class="game-meta">Android · Simulation & idle</span>
+              
+            </span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section id="work" aria-labelledby="work-h">
+      <h2 id="work-h">How I work</h2>
+      <dl class="work">
+        <div><dt>Clean architecture</dt><dd>Maintainable C# built on SOLID principles and patterns like MVC, State, and Observer. Addressables, save systems, and resource loading designed to scale as a game grows.</dd></div>
+        <div><dt>Performance</dt><dd>Fewer ANRs (down 35% on one project), builds up to 50% smaller, and steady frame rates through memory management, GC tuning, batching, and animation baking.</dd></div>
+        <div><dt>Monetization and LiveOps</dt><dd>Ad mediation, analytics, level systems, remote configs, and A/B tests, so a game can be tuned after launch.</dd></div>
+        <div><dt>Fast prototyping</dt><dd>Prototypes for publishers including TapNation, Supersonic, Voodoo, Zplay, and Casual Azur.</dd></div>
+      </dl>
+      <ul class="stack" aria-label="Tools">
+        <li>Unity</li><li>C#</li><li>Shader Graph</li><li>Addressables</li><li>Firebase</li><li>Git</li><li>Android</li><li>iOS</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="contact" aria-labelledby="contact-h">
+      <h2 id="contact-h">Let’s talk</h2>
+      <p>I’m open to conversations about hybrid casual and puzzle projects. The quickest way to reach me is email or LinkedIn.</p>
+      <div class="btns">
+        <a class="btn primary" href="mailto:arslaanlive@gmail.com">arslaanlive@gmail.com</a>
+        <a class="btn" href="https://www.linkedin.com/in/arslanasif-" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 Muhammad Arslan Asif</footer>
+</div>
+
+<script>
+(function(){
+  var chips = document.querySelectorAll('.chip');
+  var games = document.querySelectorAll('.game');
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      var f = chip.getAttribute('data-filter');
+      chips.forEach(function(c){ c.setAttribute('aria-pressed', c === chip ? 'true' : 'false'); });
+      games.forEach(function(g){ g.hidden = !(f === 'all' || g.getAttribute('data-genre') === f); });
+    });
+  });
+})();
+</script>
+</body>
+</html>
